@@ -6,29 +6,34 @@
 <meta name="theme-color" content="#123b70">
 <title>TGPCET | Student Fee Payment Portal</title>
 <style>
-:root{--navy:#123b70;--blue:#1769aa;--bg:#f3f6fb;--ink:#172235;--muted:#66758a;--line:#dce4ef;--white:#fff;--green:#16834a}
+:root{--navy:#123b70;--blue:#1769aa;--bg:#f3f6fb;--ink:#172235;--muted:#66758a;--line:#dce4ef;--green:#16834a}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
 header{background:linear-gradient(120deg,#102f59,#1769aa);color:white;text-align:center;padding:25px 16px 22px}
 header h1{margin:0;font-size:30px;letter-spacing:2px}header p{margin:7px 0 0;color:#d9e9ff;font-size:14px}
-main{max-width:760px;margin:24px auto;padding:0 14px 35px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:21px;margin-bottom:16px;box-shadow:0 5px 20px #173b6410}
+main{max-width:900px;margin:24px auto;padding:0 14px 35px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:21px;margin-bottom:16px;box-shadow:0 5px 20px #173b6410}
 h2{font-size:19px;margin:0 0 17px}.field{margin-bottom:14px}label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
-input,select{width:100%;padding:13px;border:1px solid #cbd6e4;border-radius:9px;font-size:15px;background:white;color:var(--ink)}
+input,select{width:100%;padding:12px;border:1px solid #cbd6e4;border-radius:9px;font-size:14px;background:white;color:var(--ink)}
 input:focus,select:focus{outline:2px solid #a9d1ff;border-color:var(--blue)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fee-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fee-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .fee-option{border:1px solid var(--line);border-radius:10px;padding:13px;background:#fbfdff}.fee-option strong{display:block;font-size:14px}.fee-option span{font-size:13px;color:var(--muted);display:block;margin-top:5px}
 .total{background:#edf5ff;border:1px solid #d4e7ff;border-radius:12px;padding:15px;display:flex;justify-content:space-between;align-items:center;margin:17px 0}
 .total span{font-size:13px;color:#4f6681}.total strong{font-size:24px;color:var(--navy)}
-button{border:0;border-radius:9px;padding:13px 17px;font-size:15px;font-weight:700;cursor:pointer}
-.primary{width:100%;background:var(--blue);color:white}.secondary{background:#eaf1f9;color:var(--navy)}.danger{background:#fff0f0;color:#a52d2d}
+button{border:0;border-radius:9px;padding:12px 15px;font-size:14px;font-weight:700;cursor:pointer}
+.primary{width:100%;background:var(--blue);color:white}.secondary{background:#eaf1f9;color:var(--navy)}.danger{background:#fff0f0;color:#a52d2d}.success{background:#e7f7ed;color:#126b3b}
 button:disabled{opacity:.5;cursor:not-allowed}.hint{font-size:12px;color:var(--muted);line-height:1.5}.hidden{display:none!important}
 #paymentBox{text-align:center}#qr{width:210px;height:210px;max-width:100%;border:8px solid white;box-shadow:0 1px 8px #0002;border-radius:10px}
 .notice{background:#fff8e8;border:1px solid #f2dfad;color:#725313;padding:12px;border-radius:9px;font-size:13px;line-height:1.5;margin:12px 0}
 .status{padding:10px;border-radius:8px;background:#fff5df;color:#805700;font-size:13px;margin-top:12px}
 .admin-toggle{display:block;margin:16px auto 0;background:transparent;color:#54708f;font-size:13px}
-.admin-panel{border-top:1px solid var(--line);margin-top:16px;padding-top:16px}.admin-row{display:grid;grid-template-columns:1fr 150px;gap:10px;align-items:center;margin:10px 0}
-.admin-row label{margin:0}.small{font-size:12px;color:var(--muted)}
+.admin-panel{margin-top:16px}.admin-row{display:grid;grid-template-columns:1fr 150px;gap:10px;align-items:center;margin:10px 0}.admin-row label{margin:0}
+.small{font-size:12px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 18px}
+.stat{background:#f2f6fc;border:1px solid var(--line);border-radius:10px;padding:13px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;font-size:21px;color:var(--navy);margin-top:5px}
+.toolbar{display:grid;grid-template-columns:1fr 170px;gap:10px;margin:12px 0}
+.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:700px;font-size:13px}th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--line);vertical-align:middle}th{background:#f5f8fc;color:#53647b}
+.pill{display:inline-block;padding:5px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#fff3d7;color:#805700}.pill.verified{background:#e3f6e9;color:#126b3b}
+.record-actions{display:flex;gap:6px;flex-wrap:wrap}.record-actions button{padding:7px 9px;font-size:11px}
 footer{text-align:center;color:#7a8798;font-size:12px;padding:5px 15px 25px}
-@media(max-width:520px){.grid,.fee-grid{grid-template-columns:1fr}.card{padding:17px}.admin-row{grid-template-columns:1fr 120px}}
+@media(max-width:520px){.grid,.fee-grid,.toolbar{grid-template-columns:1fr}.card{padding:17px}.admin-row{grid-template-columns:1fr 120px}.stats{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -41,55 +46,66 @@ footer{text-align:center;color:#7a8798;font-size:12px;padding:5px 15px 25px}
   <div class="field"><label for="rollNumber">Roll Number</label><input id="rollNumber" placeholder="Enter roll number"></div>
 </div>
 <div class="field"><label for="feeType">Select Fee Type</label>
-<select id="feeType">
-<option value="">Choose a fee type</option>
-<option>College Fees</option><option>Exam Fees</option><option>Clearance Fees</option><option>Other Fees</option><option>Late Fees</option>
-</select></div>
+<select id="feeType"><option value="">Choose a fee type</option><option>College Fees</option><option>Exam Fees</option><option>Clearance Fees</option><option>Other Fees</option><option>Late Fees</option></select></div>
 <div class="total"><span>AMOUNT TO PAY</span><strong id="amount">₹0.00</strong></div>
 <p class="hint">Fee amounts are set by the portal administrator. Contact the college office if the displayed amount is incorrect.</p>
 <button class="primary" id="continueBtn">Continue to UPI Payment</button>
 <div id="paymentBox" class="hidden">
   <hr style="border:0;border-top:1px solid #e4eaf2;margin:20px 0">
-  <h2>Pay using UPI</h2>
-  <p class="small" id="paymentSummary"></p>
+  <h2>Pay using UPI</h2><p class="small" id="paymentSummary"></p>
   <img id="qr" alt="UPI payment QR code">
   <p class="hint">Scan this QR code using a UPI app, or tap the button below on your phone.</p>
   <a id="upiLink" href="#" style="text-decoration:none"><button class="primary" type="button">Open UPI App</button></a>
-  <div class="notice">After paying, keep your UPI transaction ID / UTR number. This demo cannot verify payments automatically.</div>
+  <div class="notice">After paying, keep your UPI transaction ID / UTR number. Submitting a reference does not confirm payment; the college must verify it.</div>
   <div class="field" style="text-align:left"><label for="utr">UPI Transaction ID / UTR (after payment)</label><input id="utr" placeholder="Enter transaction reference"></div>
   <button class="secondary" id="submitReference" style="width:100%">Submit payment reference</button>
   <div id="referenceStatus" class="status hidden"></div>
 </div>
 </section>
-
-<section class="card">
-<h2>Fee Categories</h2>
-<div class="fee-grid">
+<section class="card"><h2>Fee Categories</h2><div class="fee-grid">
 <div class="fee-option"><strong>College Fees</strong><span>Regular college fee payment</span></div>
 <div class="fee-option"><strong>Exam Fees</strong><span>Semester examination fees</span></div>
 <div class="fee-option"><strong>Clearance Fees</strong><span>College clearance payment</span></div>
 <div class="fee-option"><strong>Other Fees</strong><span>Additional college charges</span></div>
 <div class="fee-option"><strong>Late Fees</strong><span>Late payment charges</span></div>
-</div>
-</section>
+</div></section>
 
 <button class="admin-toggle" id="adminToggle">Administrator access</button>
-<section class="card hidden" id="adminPanel">
-<h2>Admin Panel</h2>
-<p class="hint">Set the amount for each fee category and enter the official college UPI ID.</p>
+<section class="card hidden admin-panel" id="adminPanel">
+<h2>Admin Dashboard</h2>
+<p class="hint">Manage fee amounts, search submitted payment references and update verification status.</p>
+<div class="stats">
+ <div class="stat"><span>Total references</span><strong id="totalRecords">0</strong></div>
+ <div class="stat"><span>Awaiting verification</span><strong id="pendingRecords">0</strong></div>
+ <div class="stat"><span>Verified payments</span><strong id="verifiedRecords">0</strong></div>
+</div>
+<h2 style="font-size:16px;margin-top:20px">Fee Settings</h2>
 <div id="feeInputs"></div>
 <div class="field" style="margin-top:17px"><label for="upiId">College UPI ID</label><input id="upiId" placeholder="example@bank"></div>
 <div class="field"><label for="payeeName">UPI Payee Name</label><input id="payeeName" placeholder="TGPCET"></div>
 <button class="primary" id="saveAdmin">Save Fee Settings</button>
 <p class="small" id="adminMessage"></p>
-<p class="notice">Prototype note: these settings are stored only in this browser. This is not a secure multi-user admin system. Do not publish this as an official payment portal until the college approves it and a secure backend/payment verification is added.</p>
+<hr style="border:0;border-top:1px solid #e4eaf2;margin:22px 0">
+<h2 style="font-size:16px">Student Payment Records</h2>
+<div class="toolbar">
+ <input id="searchRecords" placeholder="Search name, roll number or UTR">
+ <select id="statusFilter"><option value="all">All statuses</option><option value="pending">Awaiting verification</option><option value="verified">Verified</option></select>
+</div>
+<div class="record-actions" style="margin-bottom:12px">
+ <button class="secondary" id="exportCsv">Export CSV</button>
+ <button class="secondary" id="refreshRecords">Refresh records</button>
+</div>
+<div class="table-wrap"><table><thead><tr><th>Student</th><th>Roll No.</th><th>Fee</th><th>Amount</th><th>UTR</th><th>Date</th><th>Status / Action</th></tr></thead><tbody id="recordsBody"></tbody></table></div>
+<p id="emptyRecords" class="small">No payment references have been submitted on this browser yet.</p>
+<div class="notice">Important: this version stores fee settings and payment references in this browser only. It does not sync between students' devices. The admin PIN in a static website is not secure. Do not treat a submitted UTR as proof of payment; verify it in the official bank/UPI account.</div>
 </section>
 </main>
-<footer> TGPCET Student Fee Payment Portal · Demo version</footer>
+<footer>TGPCET Student Fee Payment Portal · Admin dashboard prototype</footer>
 <script>
 const feeNames=["College Fees","Exam Fees","Clearance Fees","Other Fees","Late Fees"];
 const defaults={"College Fees":0,"Exam Fees":0,"Clearance Fees":0,"Other Fees":0,"Late Fees":0};
 const readSettings=()=>{try{return JSON.parse(localStorage.getItem("tgpcetFeeSettings"))||{amounts:defaults,upiId:"",payeeName:"TGPCET"}}catch(e){return {amounts:defaults,upiId:"",payeeName:"TGPCET"}}};
+const readRecords=()=>{try{return JSON.parse(localStorage.getItem("tgpcetPaymentReferences"))||[]}catch(e){return []}};
 let settings=readSettings();
 const money=n=>"₹"+Number(n||0).toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2});
 const type=document.getElementById("feeType"), amount=document.getElementById("amount");
@@ -112,16 +128,17 @@ document.getElementById("continueBtn").addEventListener("click",()=>{
 document.getElementById("submitReference").addEventListener("click",()=>{
  const utr=document.getElementById("utr").value.trim();
  if(!utr){alert("Please enter the UPI transaction reference.");return}
- const record={name:document.getElementById("studentName").value.trim(),roll:document.getElementById("rollNumber").value.trim(),fee:type.value,amount:Number(settings.amounts[type.value]||0),utr:utr,submittedAt:new Date().toISOString(),status:"Submitted for verification"};
- const list=JSON.parse(localStorage.getItem("tgpcetPaymentReferences")||"[]");list.push(record);localStorage.setItem("tgpcetPaymentReferences",JSON.stringify(list));
- const status=document.getElementById("referenceStatus");status.textContent="Reference saved in this browser. Payment is NOT confirmed; the college must verify it.";status.classList.remove("hidden");
+ const record={id:Date.now().toString(),name:document.getElementById("studentName").value.trim(),roll:document.getElementById("rollNumber").value.trim(),fee:type.value,amount:Number(settings.amounts[type.value]||0),utr:utr,submittedAt:new Date().toISOString(),status:"Pending"};
+ const list=readRecords();list.push(record);localStorage.setItem("tgpcetPaymentReferences",JSON.stringify(list));
+ const status=document.getElementById("referenceStatus");status.textContent="Reference submitted in this browser. Payment is pending college verification.";status.classList.remove("hidden");
+ document.getElementById("utr").value="";
 });
 document.getElementById("adminToggle").addEventListener("click",()=>{
  const panel=document.getElementById("adminPanel");
  if(!panel.classList.contains("hidden")){panel.classList.add("hidden");return}
- const pin=prompt("Enter demo admin PIN:");
- if(pin!=="1234"){alert("Incorrect PIN.");return}
- panel.classList.remove("hidden");renderAdmin();panel.scrollIntoView({behavior:"smooth"});
+ const pin=prompt("Enter administrator PIN:");
+ if(pin!=="TBIT24002"){alert("Incorrect PIN.");return}
+ panel.classList.remove("hidden");renderAdmin();renderRecords();panel.scrollIntoView({behavior:"smooth"});
 });
 function renderAdmin(){
  const wrap=document.getElementById("feeInputs");wrap.innerHTML="";
@@ -139,6 +156,42 @@ document.getElementById("saveAdmin").addEventListener("click",()=>{
  settings={amounts,upiId:document.getElementById("upiId").value.trim(),payeeName:document.getElementById("payeeName").value.trim()||"TGPCET"};
  localStorage.setItem("tgpcetFeeSettings",JSON.stringify(settings));updateAmount();
  document.getElementById("adminMessage").textContent="Settings saved on this device.";
+});
+function renderRecords(){
+ const all=readRecords(),q=document.getElementById("searchRecords").value.trim().toLowerCase(),filter=document.getElementById("statusFilter").value;
+ const filtered=all.filter(r=>{
+  const hay=[r.name,r.roll,r.utr,r.fee].join(" ").toLowerCase();
+  return (!q||hay.includes(q))&&(filter==="all"||(filter==="verified"?r.status==="Verified":r.status!=="Verified"));
+ });
+ document.getElementById("totalRecords").textContent=all.length;
+ document.getElementById("pendingRecords").textContent=all.filter(r=>r.status!=="Verified").length;
+ document.getElementById("verifiedRecords").textContent=all.filter(r=>r.status==="Verified").length;
+ const body=document.getElementById("recordsBody");body.innerHTML="";
+ filtered.forEach(r=>{
+  const tr=document.createElement("tr");
+  const date=r.submittedAt?new Date(r.submittedAt).toLocaleString("en-IN"):"—";
+  const cells=[r.name,r.roll,r.fee,money(r.amount),r.utr,date];
+  cells.forEach(value=>{const td=document.createElement("td");td.textContent=value||"—";tr.append(td)});
+  const action=document.createElement("td");
+  const badge=document.createElement("span");badge.className="pill"+(r.status==="Verified"?" verified":"");badge.textContent=r.status==="Verified"?"Verified":"Pending";action.append(badge);
+  const controls=document.createElement("div");controls.className="record-actions";controls.style.marginTop="7px";
+  const verify=document.createElement("button");verify.className=r.status==="Verified"?"secondary":"success";verify.textContent=r.status==="Verified"?"Undo":"Verify";verify.addEventListener("click",()=>setRecordStatus(r.id,r.status==="Verified"?"Pending":"Verified"));
+  const del=document.createElement("button");del.className="danger";del.textContent="Delete";del.addEventListener("click",()=>deleteRecord(r.id));
+  controls.append(verify,del);action.append(controls);tr.append(action);body.append(tr);
+ });
+ document.getElementById("emptyRecords").style.display=filtered.length?"none":"block";
+}
+function setRecordStatus(id,status){const list=readRecords();const item=list.find(r=>r.id===id);if(item){item.status=status;item.verifiedAt=status==="Verified"?new Date().toISOString():null;localStorage.setItem("tgpcetPaymentReferences",JSON.stringify(list));renderRecords()}}
+function deleteRecord(id){if(!confirm("Delete this payment reference?"))return;localStorage.setItem("tgpcetPaymentReferences",JSON.stringify(readRecords().filter(r=>r.id!==id)));renderRecords()}
+document.getElementById("searchRecords").addEventListener("input",renderRecords);
+document.getElementById("statusFilter").addEventListener("change",renderRecords);
+document.getElementById("refreshRecords").addEventListener("click",renderRecords);
+document.getElementById("exportCsv").addEventListener("click",()=>{
+ const rows=readRecords();if(!rows.length){alert("No records to export.");return}
+ const cols=["name","roll","fee","amount","utr","submittedAt","status"];
+ const csv=[cols.join(","),...rows.map(r=>cols.map(k=>'"'+String(r[k]??"").replace(/"/g,'""')+'"').join(","))].join("\r\n");
+ const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="tgpcet-payment-records.csv";a.click();URL.revokeObjectURL(url);
 });
 updateAmount();
 </script>
